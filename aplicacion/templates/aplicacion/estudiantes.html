@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudiantes</title>
-</head>
-<body bgcolor="lightblue">
-    <h1>Estudiantes</h1>
-</body>
-</html>
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Estudiantes
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Listado de Estudiantes
+{% endblock cabecera %}
+
+{% block contenido %}
+<table class="table">
+    <thead>
+        <tr>
+           <th>Nombre</th>
+           <th>Apellido</th>
+           <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for estudiantes in estudiantes %}
+    <tr>
+        <td>{{ estudiantes.nombre }}</td>
+        <td>{{ estudiantes.apellido }}</td>
+        <td>{{ estudiantes.email }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

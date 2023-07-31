@@ -1,11 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesores</title>
-</head>
-<body bgcolor="pink">
-    <h1>Profesores</h1>
-</body>
-</html>
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Profesores
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Listado de Profesores
+{% endblock cabecera %}
+
+{% block contenido %}
+<table class="table">
+    <thead>
+        <tr>
+           <th>Nombre</th>
+           <th>Apellido</th>
+           <th>Email</th>
+           <th>Profesion</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for profesores in profesores %}
+    <tr>
+        <td>{{ profesores.nombre }}</td>
+        <td>{{ profesores.apellido }}</td>
+        <td>{{ profesores.email }}</td>
+        <td>{{ profesores.profesion }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

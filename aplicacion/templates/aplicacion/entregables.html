@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entregables</title>
-</head>
-<body bgcolor="yellow">
-    <h1>Entregables</h1>
-</body>
-</html>
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Entregables
+{% endblock titulo %}
+
+
+{% block cabecera %}
+    Listado de Entregables
+{% endblock cabecera %}
+
+{% block contenido %}
+<table class="table">
+    <thead>
+        <tr>
+           <th>Nombre</th>
+           <th>FechaEntrega</th>
+           <th>Entregado</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entregables in entregables %}
+    <tr>
+        <td>{{ entregables.nombre }}</td>
+        <td>{{ entregables.fechaentrega }}</td>
+        <td>{{ entregables.entregado }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
